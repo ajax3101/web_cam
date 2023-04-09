@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face Recognition</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select an image file:</label>
+                <input type="file" name="file" id="file">
+            </div>
+            <div class="form-group">
+                <label for="name">Enter the name of the person:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for face in faces %}
+                    <tr>
+                        <td>{{ face[1] }}</td>
+                        <td><img src="{{ url_for('static', filename='uploads/' + face[2]) }}" height="50"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

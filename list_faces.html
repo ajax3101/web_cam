@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List Faces</title>
+  </head>
+  <body>
+    <h1>List Faces</h1>
+    <ul>
+      {% for face in faces %}
+        <li>
+          <img src="{{ face.image_url }}" alt="{{ face.name }}">
+          <p>{{ face.name }}</p>
+          <form method="POST" action="{{ url_for('delete_face', id=face.id) }}">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Face</title>
+  </head>
+  <body>
+    <h1>Add Face</h1>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+      </div>
+      <div>
+        <label for="photo">Photo:</label>
+        <input type="file" name="photo" accept="image/*" required>
+      </div>
+      <input type="submit" value="Add">
+    </form>
+  </body>
+</html>
