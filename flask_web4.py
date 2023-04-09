@@ -113,10 +113,9 @@ def recognize_faces():
                 cv2.imshow("Video", frame)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
-
-            # Освобождаем ресурсы
-            cv2.destroyAllWindows()
-            vs.stop()
-            cur.close()
-            conn.close()
+                # Освобождаем ресурсы
+                cv2.destroyAllWindows()
+                vs.stop()
+                cur.close()
+                conn.close()
 
